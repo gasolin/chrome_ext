@@ -1,11 +1,11 @@
-//function defs
-var injectScript = function(script){
-    browser.tabs.executeScript({
-      code: script
-    });
+// function defs
+var injectScript = function(script) {
+  browser.runtime.sendMessage({
+    code: script
+  });
 }
 
-var setThumbnail = function(text){
+var setThumbnail = function(text) {
     browser.runtime.sendMessage(text);
 };
 
@@ -18,14 +18,14 @@ const BOUNTIES_BASE_URL = "https://gitcoin.co/api/v0.1/bounties/?";
 var ajax = function(url, callback) {
   fetch(url).then(function(response) {
     if (response.status !== 200) {
-      throw new Error("Status Code: " + response.status);
+      throw new Error(`Status Code: ${response.status} for ${url}`);
     } else {
       response.json().then(function(data) {
         callback(data);
       });
     }
   }).catch(function(err) {
-    throw new Error(err);
+      throw new Error(err);
   });
 }
 
