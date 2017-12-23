@@ -5,7 +5,7 @@
   "content_scripts": 
   [
     {
-      "matches": ["*://*/*"],
+      "matches": ["*://github.com/*"],
       "js": [
         "lib/browser-polyfill.js",
         "script/pageload/functions.js",
