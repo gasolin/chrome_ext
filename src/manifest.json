@@ -5,7 +5,10 @@
   "content_scripts": 
   [
     {
-      "matches": ["*://github.com/*"],
+      "matches": [
+        "*://*.github.com/*",
+        "*://gitcoin.co/api/*"
+      ],
       "js": [
         "lib/browser-polyfill.js",
         "script/pageload/functions.js",
@@ -29,7 +32,8 @@
   "permissions": [
     "activeTab",
     "https://ajax.googleapis.com/",
-    "https://gitcoin.co/"
+    "https://gitcoin.co/",
+    "*://*.github.com/*"
   ],
   "background":
   {
